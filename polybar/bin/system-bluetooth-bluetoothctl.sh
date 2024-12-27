@@ -22,7 +22,7 @@ bluetooth_print() {
                     if [ $counter -gt 0 ]; then
                         printf ", %s" "$device_alias" " - " "$device_battery"
                     else
-                        printf " %s" "$device_alias"" - " "$device_battery" 
+                        printf "%s" "$device_alias" " - " "$device_battery" 
                     fi
 
                     counter=$((counter + 1))

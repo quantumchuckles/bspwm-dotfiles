@@ -17,7 +17,7 @@ window {
     transparency:                   "real";
     background-color:               @background;
     text-color:                     @foreground;
-    width:                          455px;
+    width:                          535px;
     location:                       center;
     anchor:                         center;
     x-offset:                       0;
@@ -77,7 +77,7 @@ case-indicator {
 listview {
     background-color:               @background;
     columns:                        1;
-    lines:							5;
+    lines:							6;
     spacing:                        10px;
     cycle:                          true;
     dynamic:                        true;

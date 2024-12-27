@@ -11,5 +11,6 @@ while pgrep -u $UID -x picom >/dev/null; do sleep 1; done
 
 # Launch picom
 # picom --config ~/.config/bspwm/picom-cheat.conf &
+# picom --config ~/.config/bspwm/picom-ibhagwan-focus.conf &
 picom --experimental-backends --config ~/.config/bspwm/picom-ibhagwan.conf &
 # picom --experimental-backends --config ~/.config/bspwm/picom-jonaburg.conf &

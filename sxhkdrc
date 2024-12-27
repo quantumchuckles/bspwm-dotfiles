@@ -18,6 +18,9 @@ super + t
 alt + F1
 	sh ~/.config/bspwm/rofi/bin/launcher
 
+button2
+	sh ~/.config/bspwm/rofi/bin/launcher
+
 super + a
 	sh ~/.config/bspwm/rofi/bin/allApps
 
@@ -53,8 +56,8 @@ super + v
 ##---------- Applications ----------##
 
 # Launch Apps
-super + {f,b,c}
-	{thunar,firefox,code}
+super + {f,b,c,o}
+	{thunar,firefox,code,okular}
 
 # Terminal Apps
 ctrl + alt + {v,n,h,b,c,m,p}
@@ -188,11 +191,10 @@ alt + {_,shift + }Tab
 	bspc node -f {next,prev}.local
 
 # Switch workspace
-super + alt + {Left,Right}
+# {button8, button9}
+super + {Left,Right}
 	bspc desktop -f {prev.local,next.local}
 
-super + {Left,Right}
-	bspc node -m {prev,next} --follow
 
 # Switch to last opened workspace
 super + {Tab,grave}

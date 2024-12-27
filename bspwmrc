@@ -96,7 +96,6 @@ bspc rule -a Xfce4-terminal desktop='^1' follow=on focus=on
 
 # 2 > web
 bspc rule -a firefox desktop='^2' follow=on focus=on
-bspc rule -a google-chrome desktop='^2' follow=on focus=on
 bspc rule -a chromium desktop='^2' follow=on focus=on
 
 # 3 > files
@@ -129,6 +128,7 @@ for i in ${media[@]}; do
 # 8 > settings
 bspc rule -a 'VirtualBox Manager' desktop='^8' follow=on focus=on
 bspc rule -a GParted desktop='^8' follow=on focus=on
+bspc rule -a Blueman-manager desktop='^8' follow=on focus=on
 bspc rule -a rdesktop desktop='^8' state=pseudo_tiled follow=on focus=on 
 declare -a settings=(filelight timeshift Lxappearance Lxtask Lxrandr Arandr \
 System-config-printer.py Xfce4-taskmanager gnome-system-monitor Pavucontrol Exo-helper-1 \
@@ -175,6 +175,7 @@ xfce4-power-manager &
 xsetroot -cursor_name left_ptr &
 xinput --disable "ETPS/2 Elantech Touchpad" &
 
+# hide the mouse cursor if it is idling over
 unclutter -idle 1 &
 
 # Disable "+" key 

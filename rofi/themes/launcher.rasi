@@ -24,10 +24,6 @@ configuration {
 @import "font.rasi"
 
 * {
-    border-colour : var(selected);
-    handle-colour : var(selected);
-    background-colour : var(background);
-    foreground-colour : var(foreground);
     alternate-background : var(background-alt);
     normal-background : var(background);
     normal-foreground : var(foreground);
@@ -66,10 +62,10 @@ window {
     padding : 0px;
     border : 0px solid;
     border-radius : 10px;
-    border-color : @border-colour;
+    border-color : @selected;
     cursor : "default";
     /* Backgroud Colors */
-    background-color : @background-colour;
+    background-color : @background;
     /* Backgroud Image */
     //background-image : url("/path/to/image.png", none);
     /* Simple Linear Gradient */
@@ -88,7 +84,7 @@ mainbox {
     padding : 30px;
     border : 0px solid;
     border-radius : 0px 0px 0px 0px;
-    border-color : @border-colour;
+    border-color : @selected;
     background-color : transparent;
     children : [ "inputbar", "message", "listview" ];
 }
@@ -101,9 +97,9 @@ inputbar {
     padding : 0px;
     border : 0px solid;
     border-radius : 0px;
-    border-color : @border-colour;
+    border-color : @selected;
     background-color : transparent;
-    text-color : @foreground-colour;
+    text-color : @foreground;
     children : [ "textbox-prompt-colon", "entry", "mode-switcher" ];
 }
 
@@ -171,14 +167,14 @@ listview {
     padding : 0px;
     border : 0px solid;
     border-radius : 0px;
-    border-color : @border-colour;
+    border-color : @selected;
     background-color : transparent;
-    text-color : @foreground-colour;
+    text-color : @foreground;
     cursor : "default";
 }
 scrollbar {
     handle-width : 5px ;
-    handle-color : @handle-colour;
+    handle-color : @selected;
     border-radius : 10px;
     // background-color : @alternate-background;
 }
@@ -191,9 +187,9 @@ element {
     padding : 5px 10px;
     border : 0px solid;
     border-radius : 10px;
-    border-color : @border-colour;
+    border-color : @selected;
     background-color : transparent;
-    text-color : @foreground-colour;
+    text-color : @foreground;
     cursor : default;
 }
 element normal.normal {
@@ -255,7 +251,7 @@ mode-switcher{
     padding : 0px;
     border : 0px solid;
     border-radius : 0px;
-    border-color : @border-colour;
+    border-color : @selected;
     background-color : transparent;
     text-color : @selected-normal-foreground;
 }
@@ -263,7 +259,7 @@ button {
     padding : 5px 10px;
     border : 0px solid;
     border-radius : 10px;
-    border-color : @border-colour;
+    border-color : @selected;
     // background-color : @alternate-background;
     text-color : inherit;
     cursor : default;
@@ -280,21 +276,21 @@ message {
     padding : 0px;
     border : 0px solid;
     border-radius : 0px 0px 0px 0px;
-    border-color : @border-colour;
+    border-color : @selected;
     background-color : transparent;
-    text-color : @foreground-colour;
+    text-color : @foreground;
 }
 textbox {
     padding : 8px 10px;
     border : 0px solid;
     border-radius : 10px;
-    border-color : @border-colour;
+    border-color : @selected;
     // background-color : @alternate-background;
-    text-color : @foreground-colour;
+    text-color : @foreground;
     vertical-align : 0.5;
     horizontal-align : 0.0;
     highlight : none;
-    placeholder-color : @foreground-colour;
+    placeholder-color : @foreground;
     blink : true;
     markup : true;
 }
@@ -302,7 +298,7 @@ error-message {
     padding : 10px;
     border : 2px solid;
     border-radius : 10px;
-    border-color : @border-colour;
-    background-color : @background-colour;
-    text-color : @foreground-colour;
+    border-color : @selected;
+    background-color : @background;
+    text-color : @foreground;
 }
