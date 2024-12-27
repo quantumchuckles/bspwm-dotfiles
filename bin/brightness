@@ -44,43 +44,82 @@ notify_bl() {
 	get_icon && dunstify -u low --replace=69 -i "$icon" "Brightness : $(get_backlight)"
 }
 
-# Increase brightness
+# Function to increase brightness
 inc_backlight() {
-	backlight="$(get_backlight)"
-	current="${backlight%%%}"
-	if [[ ("$current" -lt "5") ]]; then
-		if [[ "$CARD" == *"intel_"* ]]; then
-			xbacklight -inc 1 && notify_bl
-		else
-			light -A 1 && notify_bl
-		fi
-	else 
-		if [[ "$CARD" == *"intel_"* ]]; then
-			xbacklight -inc 5 && notify_bl
-		else
-			light -A 5 && notify_bl
-		fi
-	fi
+    # Get the current backlight percentage
+    backlight="$(get_backlight)"
+    current="${backlight%%%}"  # Remove the '%' sign
+
+    # Check if the current brightness is less than 1%
+    if (( $(echo "$current < 1" | bc -l) )); then
+        # Use xbacklight if the CARD is Intel, otherwise use light
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -inc 0.1 && notify_bl  # Increase by 0.1%
+        else
+            light -A 0.1 && notify_bl  # Increase by 0.1%
+        fi
+    # Check if the current brightness is less than 2%
+    elif (( $(echo "$current < 2" | bc -l) )); then
+        # Use xbacklight if the CARD is Intel, otherwise use light
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -inc 0.5 && notify_bl  # Increase by 0.5%
+        else
+            light -A 0.5 && notify_bl  # Increase by 0.5%
+        fi
+    # Check if the current brightness is less than 5%
+    elif [[ "$current" -lt "5" ]]; then
+        # Use xbacklight if the CARD is Intel, otherwise use light
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -inc 1 && notify_bl  # Increase by 1%
+        else
+            light -A 1 && notify_bl  # Increase by 1%
+        fi
+    else
+        # Use xbacklight if the CARD is Intel, otherwise use light
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -inc 5 && notify_bl  # Increase by 5%
+        else
+            light -A 5 && notify_bl  # Increase by 5%
+        fi
+    fi
 }
 
-# Decrease brightness
+# Function to decrease brightness
 dec_backlight() {
-	backlight="$(get_backlight)"
-	current="${backlight%%%}"
-	if [[ ("$current" -le "5") ]]; then
-		if [[ "$CARD" == *"intel_"* ]]; then
-			xbacklight -dec 1 && notify_bl
-		else
-			light -U 1 && notify_bl
-		fi
-	else 
-		if [[ "$CARD" == *"intel_"* ]]; then
-			xbacklight -dec 5 && notify_bl
-		else
-			light -U 5 && notify_bl
-		fi
-	fi
+    # Get the current backlight percentage
+    backlight="$(get_backlight)"
+    current="${backlight%%%}"  # Remove the '%' sign
+
+    # Check if the current brightness is less than or equal to 1%
+    if (( $(echo "$current < 1" | bc -l) )); then
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -dec 0.1 && notify_bl  # Decrease by 0.1%
+        else
+            light -U 0.1 && notify_bl  # Decrease by 0.1%
+        fi
+    # Check if the current brightness is less than 2%
+    elif (( $(echo "$current < 2" | bc -l) )); then
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -dec 0.5 && notify_bl  # Decrease by 0.5%
+        else
+            light -U 0.5 && notify_bl  # Decrease by 0.5%
+        fi
+    # Check if the current brightness is less than or equal to 5%
+    elif [[ "$current" -le "5" ]]; then
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -dec 1 && notify_bl  # Decrease by 1%
+        else
+            light -U 1 && notify_bl  # Decrease by 1%
+        fi
+    else
+        if [[ "$CARD" == *"intel_"* ]]; then
+            xbacklight -dec 5 && notify_bl  # Decrease by 5%
+        else
+            light -U 5 && notify_bl  # Decrease by 5%
+        fi
+    fi
 }
+
 
 # Execute accordingly
 if [[ "$1" == "--get" ]]; then

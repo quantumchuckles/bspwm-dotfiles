@@ -105,7 +105,7 @@ ctrl + XF86AudioMute
 
 # Music control
 XF86Audio{Next,Prev,Play,Stop}
-	mpc {next,prev,toggle,stop}
+	playerctl {next, previous, play-pause, stop} --player=%any
 
 ##---------- Bspwm ----------##
 
@@ -169,7 +169,7 @@ super + h
     bspc node -g hidden=on
 
 # hide bar
-super + shift + h
+super + shift + p
 	polybar-msg cmd toggle & bspc config top_padding 0
 
 super + s

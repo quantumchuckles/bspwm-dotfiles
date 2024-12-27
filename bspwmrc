@@ -162,7 +162,7 @@ fi
 sxhkd -c "$BSPDIR"/sxhkdrc &
 
 # Start clipboard daemon
-greenclip deamon &
+# greenclip deamon &
 
 # Enable Super Keys For Menu
 ksuperkey -e 'Super_L=Alt_L|F1' &
@@ -172,11 +172,13 @@ ksuperkey -e 'Super_R=Alt_L|F1' &
 xfce4-power-manager &
 
 # Fix cursor
-xsetroot -cursor_name left_ptr
-xinput --disable "ETPS/2 Elantech Touchpad"
+xsetroot -cursor_name left_ptr &
+xinput --disable "ETPS/2 Elantech Touchpad" &
+
+unclutter -idle 1 &
 
 # Disable "+" key 
-xmodmap -e "keycode  86 = "
+xmodmap -e "keycode  86 = " &
 
 # Restore wallpaper
 # bash $HOME/.fehbg
