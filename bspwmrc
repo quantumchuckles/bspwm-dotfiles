@@ -109,14 +109,14 @@ for i in ${code[@]}; do
    bspc rule -a $i desktop='^4' follow=on focus=on; done
 
 # 5 > office and docs
-declare -a office=(zoom Gucharmap Atril deepin-reader okular Evince \
+declare -a office=(zoom Gucharmap Atril deepin-reader okular KOReader Evince \
 libreoffice-writer libreoffice-calc libreoffice-impress \
 libreoffice-startcenter libreoffice Soffice *:libreofficedev *:soffice)
 for i in ${office[@]}; do
    bspc rule -a $i desktop='^5' follow=on focus=on; done
 
 # 6 > Communication
-declare -a comm=(Thunderbird TelegramDesktop qBittorrent discord Hexchat)
+declare -a comm=(Thunderbird TelegramDesktop qBittorrent discord Hexchat Uget-gtk)
 for i in ${comm[@]}; do
    bspc rule -a $i desktop='^6' follow=on focus=on; done
 
