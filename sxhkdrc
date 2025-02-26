@@ -18,9 +18,6 @@ super + t
 alt + F1
 	sh ~/.config/bspwm/rofi/bin/launcher
 
-button2
-	sh ~/.config/bspwm/rofi/bin/launcher
-
 super + a
 	sh ~/.config/bspwm/rofi/bin/allApps
 

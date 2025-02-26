@@ -14,9 +14,10 @@ rofi \
 	-drun-display-format "{name}" \
 	-no-drun-show-actions \
 	-terminal alacritty \
-	-kb-cancel Alt-F1 \
 	-disable-history \
 	-matching glob \
   	-sort \
   	-no-levenshtein-sort \
 	-theme "$DIR"/rofi/themes/allApps.rasi
+
+#	-kb-cancel Alt-F1 \

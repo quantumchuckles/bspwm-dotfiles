@@ -86,9 +86,10 @@ random_theme() {
 
     if [[ `which wal` ]]; then
         dunstify -u low --replace=699 -i /usr/share/archcraft/icons/dunst/hourglass.png "Generating Colorscheme. Please wait..."
-        wal -q -n -s -t -e -i "$WALLDIR"
+        ERROR_OUTPUT=$(wal -q -n -s -t -e -i "$WALLDIR" 2>&1)
         if [[ "$?" != 0 ]]; then
-            dunstify -u low --replace=699 -i /usr/share/archcraft/icons/dunst/palette.png "Failed to generate colorscheme."
+            dunstify -u low --replace=699 -i /usr/share/archcraft/icons/dunst/palette.png \
+            "Failed to generate colorscheme. Error: $WALLDIR"
             exit
         fi
         if [[ -f "$WALFILE" ]]; then
