@@ -52,7 +52,7 @@ window {
 	y-offset:						0px;
 
 	/* properties for all widgets */
-	enabled:					true;
+	enabled:						true;
 	margin:							0px;
 	padding:						0px;
 	border:							0px solid;
